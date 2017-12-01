@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D89BD3C2-FB03-43C8-BEB7-BDA22986D295}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EscolaDeFormacaoPUC</RootNamespace>
+    <AssemblyName>EscolaDeFormacaoPUC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\FormAlunosInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAlunosInicio.Designer.cs">
+      <DependentUpon>FormAlunosInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAlunosMatriculados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAlunosMatriculados.Designer.cs">
+      <DependentUpon>FormAlunosMatriculados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCadastroEdicaoAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCadastroEdicaoAluno.Designer.cs">
+      <DependentUpon>FormCadastroEdicaoAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCadastroEdicaoCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCadastroEdicaoCurso.Designer.cs">
+      <DependentUpon>FormCadastroEdicaoCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCursosAlunoMatriculado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCursosAlunoMatriculado.Designer.cs">
+      <DependentUpon>FormCursosAlunoMatriculado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCursosInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCursosInicio.Designer.cs">
+      <DependentUpon>FormCursosInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDetalhesAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDetalhesAluno.Designer.cs">
+      <DependentUpon>FormDetalhesAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDetalhesCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDetalhesCurso.Designer.cs">
+      <DependentUpon>FormDetalhesCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFamiliasInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFamiliasInicio.Designer.cs">
+      <DependentUpon>FormFamiliasInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMatricularAlunos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMatricularAlunos.Designer.cs">
+      <DependentUpon>FormMatricularAlunos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\Aluno.cs">
+      <DependentUpon>EscolaDeFormacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\AlunoCurso.cs">
+      <DependentUpon>EscolaDeFormacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\Curso.cs">
+      <DependentUpon>EscolaDeFormacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\EscolaDeFormacao.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EscolaDeFormacao.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\EscolaDeFormacao.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EscolaDeFormacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\EscolaDeFormacao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EscolaDeFormacao.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Persistencia\Responsavel.cs">
+      <DependentUpon>EscolaDeFormacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormAlunosInicio.resx">
+      <DependentUpon>FormAlunosInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAlunosMatriculados.resx">
+      <DependentUpon>FormAlunosMatriculados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCadastroEdicaoAluno.resx">
+      <DependentUpon>FormCadastroEdicaoAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCadastroEdicaoCurso.resx">
+      <DependentUpon>FormCadastroEdicaoCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCursosAlunoMatriculado.resx">
+      <DependentUpon>FormCursosAlunoMatriculado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCursosInicio.resx">
+      <DependentUpon>FormCursosInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDetalhesAluno.resx">
+      <DependentUpon>FormDetalhesAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDetalhesCurso.resx">
+      <DependentUpon>FormDetalhesCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFamiliasInicio.resx">
+      <DependentUpon>FormFamiliasInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMatricularAlunos.resx">
+      <DependentUpon>FormMatricularAlunos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Persistencia\EscolaDeFormacao.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EscolaDeFormacao.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="Persistencia\EscolaDeFormacao.edmx.diagram">
+      <DependentUpon>EscolaDeFormacao.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\EscolaDeFormacaoPUC.Persistencia.Aluno.datasource" />
+    <None Include="Properties\DataSources\EscolaDeFormacaoPUC.Persistencia.Curso.datasource" />
+    <None Include="Properties\DataSources\EscolaDeFormacaoPUC.Persistencia.Responsavel.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Family.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistencia\EscolaDeFormacao.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EscolaDeFormacao.Context.cs</LastGenOutput>
+      <DependentUpon>EscolaDeFormacao.edmx</DependentUpon>
+    </Content>
+    <Content Include="Persistencia\EscolaDeFormacao.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EscolaDeFormacao.edmx</DependentUpon>
+      <LastGenOutput>EscolaDeFormacao.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\Courses.png" />
+    <Content Include="Resources\Logon.ico" />
+    <Content Include="Resources\Student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

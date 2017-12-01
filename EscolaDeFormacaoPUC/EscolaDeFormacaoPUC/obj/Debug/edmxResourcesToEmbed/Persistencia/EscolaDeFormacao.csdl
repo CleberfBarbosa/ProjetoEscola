@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscolaDeFormacaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="IDAluno" />
+    </Key>
+    <Property Name="IDAluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Escolaridade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDResponsavel" Type="Int32" />
+    <NavigationProperty Name="Responsavel" Relationship="Self.FK_Aluno_Responsavel" FromRole="Aluno" ToRole="Responsavel" />
+    <NavigationProperty Name="AlunoCurso" Relationship="Self.FK_AlunoCurso_Aluno" FromRole="Aluno" ToRole="AlunoCurso" />
+    <Property Name="FoneFixo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FoneCelular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AlunoCurso">
+    <Key>
+      <PropertyRef Name="IDAluno" />
+      <PropertyRef Name="IDCurso" />
+    </Key>
+    <Property Name="IDAluno" Type="Int32" Nullable="false" />
+    <Property Name="IDCurso" Type="Int32" Nullable="false" />
+    <Property Name="DataMatricula" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK_AlunoCurso_Aluno" FromRole="AlunoCurso" ToRole="Aluno" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_AlunoCurso_Curso" FromRole="AlunoCurso" ToRole="Curso" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="IDCurso" />
+    </Key>
+    <Property Name="IDCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Curso1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Turma" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiasSemana" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Horario" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DataFim" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="AlunoCurso" Relationship="Self.FK_AlunoCurso_Curso" FromRole="Curso" ToRole="AlunoCurso" />
+    <Property Name="Ativo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Responsavel">
+    <Key>
+      <PropertyRef Name="IDResponsavel" />
+    </Key>
+    <Property Name="IDResponsavel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Parentesco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK_Aluno_Responsavel" FromRole="Responsavel" ToRole="Aluno" />
+  </EntityType>
+  <Association Name="FK_Aluno_Responsavel">
+    <End Role="Responsavel" Type="Self.Responsavel" Multiplicity="0..1" />
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Responsavel">
+        <PropertyRef Name="IDResponsavel" />
+      </Principal>
+      <Dependent Role="Aluno">
+        <PropertyRef Name="IDResponsavel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlunoCurso_Aluno">
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="AlunoCurso" Type="Self.AlunoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IDAluno" />
+      </Principal>
+      <Dependent Role="AlunoCurso">
+        <PropertyRef Name="IDAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlunoCurso_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="AlunoCurso" Type="Self.AlunoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="IDCurso" />
+      </Principal>
+      <Dependent Role="AlunoCurso">
+        <PropertyRef Name="IDCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EscolaDeFormacaoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aluno" EntityType="Self.Aluno" />
+    <EntitySet Name="AlunoCurso" EntityType="Self.AlunoCurso" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" />
+    <EntitySet Name="Responsavel" EntityType="Self.Responsavel" />
+    <AssociationSet Name="FK_Aluno_Responsavel" Association="Self.FK_Aluno_Responsavel">
+      <End Role="Responsavel" EntitySet="Responsavel" />
+      <End Role="Aluno" EntitySet="Aluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlunoCurso_Aluno" Association="Self.FK_AlunoCurso_Aluno">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="AlunoCurso" EntitySet="AlunoCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlunoCurso_Curso" Association="Self.FK_AlunoCurso_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="AlunoCurso" EntitySet="AlunoCurso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EscolaDeFormacaoModelStoreContainer" CdmEntityContainer="EscolaDeFormacaoEntities">
+    <EntitySetMapping Name="Aluno">
+      <EntityTypeMapping TypeName="EscolaDeFormacaoModel.Aluno">
+        <MappingFragment StoreEntitySet="Aluno">
+          <ScalarProperty Name="FoneCelular" ColumnName="FoneCelular" />
+          <ScalarProperty Name="FoneFixo" ColumnName="FoneFixo" />
+          <ScalarProperty Name="IDAluno" ColumnName="IDAluno" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Escolaridade" ColumnName="Escolaridade" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="IDResponsavel" ColumnName="IDResponsavel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlunoCurso">
+      <EntityTypeMapping TypeName="EscolaDeFormacaoModel.AlunoCurso">
+        <MappingFragment StoreEntitySet="AlunoCurso">
+          <ScalarProperty Name="IDAluno" ColumnName="IDAluno" />
+          <ScalarProperty Name="IDCurso" ColumnName="IDCurso" />
+          <ScalarProperty Name="DataMatricula" ColumnName="DataMatricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curso">
+      <EntityTypeMapping TypeName="EscolaDeFormacaoModel.Curso">
+        <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="IDCurso" ColumnName="IDCurso" />
+          <ScalarProperty Name="Curso1" ColumnName="Curso" />
+          <ScalarProperty Name="Turma" ColumnName="Turma" />
+          <ScalarProperty Name="DiasSemana" ColumnName="DiasSemana" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataFim" ColumnName="DataFim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Responsavel">
+      <EntityTypeMapping TypeName="EscolaDeFormacaoModel.Responsavel">
+        <MappingFragment StoreEntitySet="Responsavel">
+          <ScalarProperty Name="IDResponsavel" ColumnName="IDResponsavel" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Parentesco" ColumnName="Parentesco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscolaDeFormacaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="IDAluno" />
+    </Key>
+    <Property Name="IDAluno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RG" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CPF" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DataNascimento" Type="date" Nullable="false" />
+    <Property Name="Escolaridade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Endereco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IDResponsavel" Type="int" />
+    <Property Name="FoneFixo" Type="varchar" MaxLength="20" />
+    <Property Name="FoneCelular" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AlunoCurso">
+    <Key>
+      <PropertyRef Name="IDAluno" />
+      <PropertyRef Name="IDCurso" />
+    </Key>
+    <Property Name="IDAluno" Type="int" Nullable="false" />
+    <Property Name="IDCurso" Type="int" Nullable="false" />
+    <Property Name="DataMatricula" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="IDCurso" />
+    </Key>
+    <Property Name="IDCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Curso" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Turma" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DiasSemana" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Horario" Type="time" Precision="7" Nullable="false" />
+    <Property Name="DataInicio" Type="date" Nullable="false" />
+    <Property Name="DataFim" Type="date" Nullable="false" />
+    <Property Name="Ativo" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Responsavel">
+    <Key>
+      <PropertyRef Name="IDResponsavel" />
+    </Key>
+    <Property Name="IDResponsavel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RG" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CPF" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Parentesco" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Aluno_Responsavel">
+    <End Role="Responsavel" Type="Self.Responsavel" Multiplicity="0..1" />
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Responsavel">
+        <PropertyRef Name="IDResponsavel" />
+      </Principal>
+      <Dependent Role="Aluno">
+        <PropertyRef Name="IDResponsavel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlunoCurso_Aluno">
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="AlunoCurso" Type="Self.AlunoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IDAluno" />
+      </Principal>
+      <Dependent Role="AlunoCurso">
+        <PropertyRef Name="IDAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlunoCurso_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="AlunoCurso" Type="Self.AlunoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="IDCurso" />
+      </Principal>
+      <Dependent Role="AlunoCurso">
+        <PropertyRef Name="IDCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EscolaDeFormacaoModelStoreContainer">
+    <EntitySet Name="Aluno" EntityType="Self.Aluno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlunoCurso" EntityType="Self.AlunoCurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Responsavel" EntityType="Self.Responsavel" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Aluno_Responsavel" Association="Self.FK_Aluno_Responsavel">
+      <End Role="Responsavel" EntitySet="Responsavel" />
+      <End Role="Aluno" EntitySet="Aluno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlunoCurso_Aluno" Association="Self.FK_AlunoCurso_Aluno">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="AlunoCurso" EntitySet="AlunoCurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlunoCurso_Curso" Association="Self.FK_AlunoCurso_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="AlunoCurso" EntitySet="AlunoCurso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
